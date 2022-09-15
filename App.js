@@ -39,41 +39,53 @@ export default function App(){
 
     return (
       <View style={styles.container}>
+        {/* Add Item */}
         <AddItem 
           onHandleChangeText={onHandleChangeText}
           addItem={addItem}
           textItem={textItem}
         />
 
+        {/* List Items */}
+
         <ListItems 
           data={itemList}
           onHandleModal={onHandleModal}
           setTextItem={setTextItem}
-        />
+          />
+        
+        {/* Modal */}
         
          <CustomModal
           animationType="slide"
           visible={modalVisible}
          >
-            <View>
-              <Text>Mi modal</Text>
-            </View>
-            <View>
-              <Text>¿Esta seguro de que quiere borrar?</Text>
-            </View>
-            <View>
-              <Text>{itemSelected?.value}</Text>
-            </View>
+            <View style={styles.box}>
+              
+              <View style={styles.boxes}>
+                <Text>¿Esta seguro de que quiere borrar?</Text>
+              </View>
 
-              <Button 
-                title='Eliminar'
-                onPress={() => onHandleDelete(itemSelected?.id)}
-                color='#4A306D'/>
+              <View style={styles.boxes}>
+                <Text style={styles.textItem} >{itemSelected?.value}</Text>
+              </View>
 
-              <Button 
-              title='Cancelar'
-              onPress={() => setModalVisible(!modalVisible)}
-              color='#cccccc'/>
+              <View style={styles.buttons}>
+                  <Button 
+                    title='Eliminar'
+                    onPress={() => onHandleDelete(itemSelected?.id)}
+                    color='#4A306D'
+                    style={styles.button}/>
+
+                  <Button 
+                  title='Cancelar'
+                  onPress={() => setModalVisible(!modalVisible)}
+                  color='#cccccc'
+                  style={styles.button}/>
+              </View>
+              
+
+            </View>
          </CustomModal>
       </View>
     );
@@ -83,5 +95,30 @@ export default function App(){
   const styles = StyleSheet.create({
     container:{
       flex: 1,
+    },
+    box:{
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    buttons:{
+      flex: 1,
+      width: "80%",
+      flexDirection: "row",
+      justifyContent: "space-evenly",
+      maxHeight: 40,
+    },
+    button:{
+      margin: 5,
+    },
+    boxes:{
+      marginBottom: 40,
+    },
+    textItem:{
+      textTransform: "uppercase",
+      backgroundColor: "#23CE6B",
+      padding: 7,
+      borderRadius: 3,
+      fontSize: 20,
     }
   });

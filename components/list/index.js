@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 10,
     borderColor: "#B8C5D6",
-    borderWidth: 1
+    borderWidth: 1,
+    margin: 7,
   },
   list:{
     padding: 9
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
   },
   ex:{
     marginRight: 15,
-    padding: 5,
+    padding: 3,
     backgroundColor: "red",
-    borderRadius: 9
+    borderRadius: 10
   }
 });
 
