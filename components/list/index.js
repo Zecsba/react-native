@@ -1,13 +1,13 @@
-import { Text, FlatList, View, TouchableOpacity } from "react-native"  
+import { StyleSheet,Text, FlatList, View, TouchableOpacity } from "react-native"  
 
 const List = ({data,onHandleModal}) => {
 
     const renderItem = ({item}) =>(
-        <View>
-          <Text>{item.value}</Text>
+        <View style={styles.view}>
+          <Text style={styles.text}>{item.value}</Text>
     
-          <TouchableOpacity onPress={() => onHandleModal(item.id)}>
-            <Text>X</Text>
+          <TouchableOpacity onPress={() => onHandleModal(item.id)} style={styles.list}>
+            <Text style={styles.ex}>X</Text>
           </TouchableOpacity>
     
         </View>
@@ -21,5 +21,32 @@ const List = ({data,onHandleModal}) => {
          />
     )
 }
+
+const styles = StyleSheet.create({
+  view:{
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#EDF5FC",
+    width: 360,
+    alignSelf: "center",
+    borderRadius: 10,
+    borderColor: "#B8C5D6",
+    borderWidth: 1
+  },
+  list:{
+    padding: 9
+  },
+  text:{
+    marginLeft: 15,
+  },
+  ex:{
+    marginRight: 15,
+    padding: 5,
+    backgroundColor: "red",
+    borderRadius: 9
+  }
+});
 
 export default List

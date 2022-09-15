@@ -9,7 +9,7 @@ const AddItem = ({onHandleChangeText, addItem, textItem}) =>{
           onChangeText={onHandleChangeText}
           value={textItem}
         />
-        <Button title="add" onPress={addItem}/>
+        <Button title="add" onPress={addItem} color="#A39BA8"/>
       </View>
      )
 }

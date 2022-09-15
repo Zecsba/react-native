@@ -39,10 +39,12 @@ export default function App(){
 
     return (
       <View style={styles.container}>
-          <AddItem 
-            onHandleChangeText={onHandleChangeText}
-            addItem={addItem}
-          />
+        <AddItem 
+          onHandleChangeText={onHandleChangeText}
+          addItem={addItem}
+          textItem={textItem}
+        />
+
         <ListItems 
           data={itemList}
           onHandleModal={onHandleModal}
